@@ -297,7 +297,7 @@ class Afip {
 	 * @param string 	$operation 		SOAP operation called 
 	 * @param array 	$params 		Parameters for the ws
 	 **/
-	/*public function TrackUsage($web_service, $operation, $params = array())
+	public function TrackUsage($web_service, $operation, $params = array())
 	{
 		$options = array();
 		if ($web_service === 'wsfe' && $operation === 'FECAESolicitar') {
@@ -350,7 +350,7 @@ class Afip {
 				throw new Exception($error_message);
 			}
 		}
-	}*/
+	}
 
 	public function __get($property)
 	{
@@ -555,7 +555,7 @@ class AfipWebService
 
 		$results = $this->soap_client->{$operation}($params);
 
-		//$this->afip->TrackUsage($this->options['service'], $operation, $params);
+		$this->afip->TrackUsage($this->options['service'], $operation, $params);
 		
 		$this->_CheckErrors($operation, $results);
 
